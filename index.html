@@ -1,0 +1,142 @@
+<head>
+    <title>Numism&aacute;tica</title>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/movil.css" media="only screen and (max-width:480px)" />
+    <link rel="stylesheet" type="text/css" href="css/tablet.css" media="only screen and (min-width:481px) and (max-width:768px)" />
+    <link rel="stylesheet" type="text/css" href="css/desktop.css" media="only screen and (min-width:769px)" />
+</head>
+<div class="main-content">
+    <section class="clearfix">
+        <h1>Numism&aacute;tica</h1>
+    </section> 
+    <section>
+        <div class="canvas-moneda">
+            <div class="moneda">
+                <div class="bubble bubble-moneda">
+                    <h2>Cono Monetario Actual</h2>
+                    <div class="selector768">
+                        <ul>
+                            <li><a href="#5_centavos" class="active">5 centavos</a></li>
+                            <li><a href="#10_centavos" class="">10 centavos</a></li>
+                            <li><a href="#20_centavos" class="">20 centavos</a></li>
+                            <li><a href="#50_centavos" class="">50 centavos</a></li>
+                            <li><a href="#1_peso" class="">1 peso</a></li>
+                            <li><a href="#2_pesos" class="">2 pesos</a></li>
+                            <li><a href="#5_pesos" class="">5 pesos</a></li>
+                            <li><a href="#10_pesos" class="">10 pesos</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="selector320">
+                        <a href="#" class="moneda-prev"></a>
+                        <a href="#" class="moneda-next"></a>
+                        <select name="selector">
+                            <option value="5_centavos">5 centavos</option>
+                            <option value="10_centavos">10 centavos</option>
+                            <option value="20_centavos">20 centavos</option>
+                            <option value="50_centavos">50 centavos</option>
+                            <option value="1_peso">1 peso</option>
+                            <option value="2_pesos">2 pesos</option>
+                            <option value="5_pesos">5 pesos</option>
+                            <option value="10_pesos">10 pesos</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="descgrafica">
+                    <div class="moneda-cal">
+                        <img class="active" alt="5_centavos" src="images/1.png" style="display: block;">
+                        <img alt="10_centavos" src="images/2.png" class="" style="display: none;">
+                        <img alt="20_centavos" src="images/3.png" class="" style="display: none;">
+                        <img alt="50_centavos" src="images/4.png" class="" style="display: none;">
+                        <img alt="1_peso" src="images/5.png" class="" style="display: none;">
+                        <img alt="2_pesos" src="images/6.png" class="" style="display: none;">
+                        <img alt="5_pesos" src="images/7.png" class="" style="display: none;">
+                        <img alt="10_pesos" src="images/8.png" class="" style="display: none;">
+                    </div>
+                    <div class="moneda-actual">
+                        <div class="5_centavos moneda-desc active" style="display: block;">
+                            <img alt="5_centavos" src="images/5_centavos.png">
+                            <p>Estilizaci&oacute;n de los rayos solares del anillo de los Quincuces de la Piedra del Sol</p>
+                        </div>
+                        <div class="10_centavos moneda-desc" style="display: none;">
+                            <img alt="10_centavos" src="images/10_centavos.png">
+                            <p>Estilizaci&oacute;n del Anillo del Sacrficio</p>
+                        </div>
+                        <div class="20_centavos moneda-desc" style="display: none;">
+                            <img alt="20_centavos" src="images/20_centavos.png">
+                            <p>Estilizaci&oacute;n de Ac&aacute;tl, d&eacute;cimo tercer d&iacute;a</p>
+                        </div>
+                        <div class="50_centavos moneda-desc" style="display: none;">
+                            <img alt="50_centavos" src="images/50_centavos.png">
+                            <p>Estilizaci&oacute;n del Anillo de la Aceptaci&oacute;n</p>
+                        </div>
+                        <div class="1_peso moneda-desc" style="display: none;">
+                            <img alt="1_peso" src="images/1_peso.png">
+                            <p>Estilizaci&oacute;n del Anillo del Resplandor</p>
+                        </div>
+                        <div class="2_pesos moneda-desc" style="display: none;">
+                            <img alt="2_pesos" src="images/2_pesos.png">
+                            <p>Estilizaci&oacute;n del Anillo de los D&iacute;as</p>
+                        </div>
+                        <div class="5_pesos moneda-desc" style="display: none;">
+                            <img alt="5_pesos" src="images/5_pesos.png">
+                            <p>Estilizaci&oacute;n del Anillo de las Serpientes</p>
+                        </div>
+                        <div class="10_pesos moneda-desc" style="display: none;">
+                            <img alt="10_pesos" src="images/10_pesos.png">
+                            <p>Estilizaci&oacute;n del centro de la Piedra de los Soles; Tonatiuh, con la m&aacute;scara del fuego</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+    $(document).ready(function () {
+        var infogrf = $('.canvas-moneda .moneda');
+        var sel768 = $('.selector768', infogrf);
+
+        $('ul li a', sel768).unbind('click');
+        $('ul li a', sel768).on('click', function () {
+            $('ul li a', sel768).removeClass('active');
+            $(this).addClass('active');
+            var targetId = $(this).attr('href').substr(1);
+            $('.descgrafica .moneda-cal img.active').fadeOut(333, function () {
+                $('.descgrafica .moneda-cal img.active').removeClass('active');
+                $('.descgrafica .moneda-cal img[alt="' + targetId + '"]').fadeIn(333, function () {
+                    $('.descgrafica .moneda-cal img[alt="' + targetId + '"]').addClass('active');
+                });
+            });
+            $('.descgrafica .moneda-actual .active').fadeOut(333, function () {
+                $('.descgrafica .moneda-actual .active').removeClass('active');
+                $('.descgrafica .moneda-actual div[class^="' + targetId + '"]').fadeIn(333, function () {
+                    $('.descgrafica .moneda-actual div[class^="' + targetId + '"]').addClass('active');
+                });
+            });
+
+            return false;
+        });
+
+        var sel320 = $('.selector320', infogrf);
+        $('select', sel320).on('change', function () {
+            var targetId = $(this).val();
+            $('.descgrafica .moneda-cal img.active').fadeOut(333, function () {
+                $('.descgrafica .moneda-cal img.active').removeClass('active');
+                $('.descgrafica .moneda-cal img[alt="' + targetId + '"]').fadeIn(333, function () {
+                    $('.descgrafica .moneda-cal img[alt="' + targetId + '"]').addClass('active');
+                });
+            });
+            $('.descgrafica .moneda-actual .active').fadeOut(333, function () {
+                $('.descgrafica .moneda-actual .active').removeClass('active');
+                $('.descgrafica .moneda-actual div[class^="' + targetId + '"]').fadeIn(333, function () {
+                    $('.descgrafica .moneda-actual div[class^="' + targetId + '"]').addClass('active');
+                });
+            });
+        });
+        $('select option', sel320).on('click', function () {
+            $('select', sel320).trigger('change');
+        });
+    });
+</script>
